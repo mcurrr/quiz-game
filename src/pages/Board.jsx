@@ -53,11 +53,16 @@ export default function Board() {
       )}
 
       {currentQuestion && status !== 'selecting' && (
-        <div className={styles.questionCard}>
-          <p className={styles.questionText}>{currentQuestion.text}</p>
-          {(status === 'judging' || status === 'revealed') && (
-            <p className={styles.answer}>Answer: {currentQuestion.answer}</p>
+        <div className={`${styles.questionCard} ${currentQuestion.imageUrl ? styles.questionCardWithImage : ''}`}>
+          {currentQuestion.imageUrl && (
+            <img className={styles.questionImage} src={currentQuestion.imageUrl} alt="" />
           )}
+          <div className={styles.questionFooter}>
+            <p className={styles.questionText}>{currentQuestion.text}</p>
+            {(status === 'judging' || status === 'revealed') && (
+              <p className={styles.answer}>Answer: {currentQuestion.answer}</p>
+            )}
+          </div>
         </div>
       )}
 

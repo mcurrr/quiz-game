@@ -123,6 +123,13 @@
   border-color: var(--gold);
 }
 
+.inputImg {
+  flex: 0.7;
+  min-width: 0;
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
 .cmsActions {
   display: flex;
   gap: 0.75rem;

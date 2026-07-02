@@ -7,11 +7,11 @@ import styles from '../styles/Admin.module.css';
 const ADMIN_SECRET = import.meta.env.VITE_ADMIN_SECRET;
 
 const DEFAULT_CATEGORIES = [
-  { name: 'Category 1', questions: [100, 200, 300, 400, 500].map(v => ({ value: v, text: '', answer: '', used: false })) },
-  { name: 'Category 2', questions: [100, 200, 300, 400, 500].map(v => ({ value: v, text: '', answer: '', used: false })) },
-  { name: 'Category 3', questions: [100, 200, 300, 400, 500].map(v => ({ value: v, text: '', answer: '', used: false })) },
-  { name: 'Category 4', questions: [100, 200, 300, 400, 500].map(v => ({ value: v, text: '', answer: '', used: false })) },
-  { name: 'Category 5', questions: [100, 200, 300, 400, 500].map(v => ({ value: v, text: '', answer: '', used: false })) },
+  { name: 'Category 1', questions: [100, 200, 300, 400, 500].map(v => ({ value: v, text: '', answer: '', imageUrl: '', used: false })) },
+  { name: 'Category 2', questions: [100, 200, 300, 400, 500].map(v => ({ value: v, text: '', answer: '', imageUrl: '', used: false })) },
+  { name: 'Category 3', questions: [100, 200, 300, 400, 500].map(v => ({ value: v, text: '', answer: '', imageUrl: '', used: false })) },
+  { name: 'Category 4', questions: [100, 200, 300, 400, 500].map(v => ({ value: v, text: '', answer: '', imageUrl: '', used: false })) },
+  { name: 'Category 5', questions: [100, 200, 300, 400, 500].map(v => ({ value: v, text: '', answer: '', imageUrl: '', used: false })) },
 ];
 
 export default function Admin() {
@@ -63,7 +63,7 @@ export default function Admin() {
     const q = game.categories[catIdx].questions[qIdx];
     await update(ref(db, 'game'), {
       status: 'question',
-      currentQuestion: { catIdx, qIdx, text: q.text, answer: q.answer, value: q.value },
+      currentQuestion: { catIdx, qIdx, text: q.text, answer: q.answer, value: q.value, imageUrl: q.imageUrl ?? '' },
       buzzer: null,
     });
   }
@@ -180,6 +180,12 @@ export default function Admin() {
                     value={q.answer}
                     onChange={e => updateQuestion(ci, qi, 'answer', e.target.value)}
                     placeholder="Answer"
+                  />
+                  <input
+                    className={`${styles.input} ${styles.inputImg}`}
+                    value={q.imageUrl ?? ''}
+                    onChange={e => updateQuestion(ci, qi, 'imageUrl', e.target.value)}
+                    placeholder="Image URL (optional)"
                   />
                 </div>
               ))}
