@@ -1,0 +1,88 @@
+.root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  background: var(--surface);
+  padding: 1rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #333;
+}
+
+.playerName {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.score {
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: var(--gold);
+}
+
+.main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  gap: 2rem;
+}
+
+.waiting {
+  font-size: 1.25rem;
+  color: var(--muted);
+  text-align: center;
+}
+
+.buzzArea {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.prompt {
+  font-size: 1.25rem;
+  color: var(--text);
+  text-align: center;
+}
+
+.youBuzzed {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--gold);
+  text-align: center;
+  animation: pulse 0.8s ease-in-out infinite alternate;
+}
+
+.reveal {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.label {
+  color: var(--muted);
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  letter-spacing: 0.1em;
+}
+
+.answerText {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--gold);
+}
+
+@keyframes pulse {
+  from { opacity: 1; }
+  to { opacity: 0.6; }
+}

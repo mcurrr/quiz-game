@@ -1,0 +1,113 @@
+.root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  gap: 1rem;
+}
+
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  font-size: 1.5rem;
+  color: var(--muted);
+}
+
+.header {
+  text-align: center;
+}
+
+.title {
+  font-size: clamp(2rem, 5vw, 4rem);
+  color: var(--gold);
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.status {
+  color: var(--muted);
+  font-size: 1.1rem;
+  margin-top: 0.25rem;
+}
+
+.lobby {
+  text-align: center;
+  font-size: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.board {
+  display: flex;
+  gap: 0.5rem;
+  flex: 1;
+}
+
+.column {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.categoryHeader {
+  background: var(--blue);
+  color: var(--gold);
+  text-align: center;
+  padding: 0.75rem 0.25rem;
+  font-weight: 700;
+  font-size: clamp(0.75rem, 1.5vw, 1.1rem);
+  text-transform: uppercase;
+  border-radius: 4px;
+  min-height: 3.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.questionCard {
+  background: var(--blue);
+  border-radius: 8px;
+  padding: 2rem;
+  text-align: center;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.questionText {
+  font-size: clamp(1.5rem, 4vw, 3rem);
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.answer {
+  font-size: clamp(1.1rem, 2.5vw, 2rem);
+  color: var(--gold);
+  font-style: italic;
+}
+
+.buzzerBanner {
+  background: var(--gold);
+  color: var(--dark);
+  text-align: center;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  font-size: clamp(1.25rem, 3vw, 2.5rem);
+  font-weight: 900;
+  text-transform: uppercase;
+  animation: pulse 0.8s ease-in-out infinite alternate;
+}
+
+@keyframes pulse {
+  from { opacity: 1; }
+  to { opacity: 0.7; }
+}

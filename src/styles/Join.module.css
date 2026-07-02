@@ -1,0 +1,79 @@
+.root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  gap: 2rem;
+}
+
+.title {
+  font-size: 2.5rem;
+  color: var(--gold);
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.returning {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  background: var(--surface);
+  border-radius: 10px;
+  padding: 1.25rem 2rem;
+  border: 1px solid var(--blue);
+}
+
+.or {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+  max-width: 320px;
+}
+
+.input {
+  background: var(--surface);
+  border: 2px solid #333;
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  color: var(--text);
+  font-size: 1.1rem;
+  text-align: center;
+  width: 100%;
+}
+
+.input:focus {
+  outline: none;
+  border-color: var(--gold);
+}
+
+.btnPrimary {
+  background: var(--blue);
+  color: var(--gold);
+  border: 2px solid var(--gold);
+  border-radius: 8px;
+  padding: 0.85rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: background 0.15s;
+}
+
+.btnPrimary:hover:not(:disabled) {
+  background: #004db3;
+}
+
+.btnPrimary:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
