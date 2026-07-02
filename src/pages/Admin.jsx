@@ -46,10 +46,14 @@ export default function Admin() {
 
   async function resetGame() {
     if (!confirm('Reset the whole game? Player scores will be wiped.')) return;
+    const existingPlayers = game?.players ?? {};
+    const resetPlayers = Object.fromEntries(
+      Object.entries(existingPlayers).map(([id, p]) => [id, { ...p, score: 0 }])
+    );
     await set(ref(db, 'game'), {
       status: 'lobby',
       categories: draft,
-      players: {},
+      players: resetPlayers,
       currentQuestion: null,
       buzzer: null,
     });
@@ -206,23 +210,24 @@ export default function Admin() {
           )}
 
           {game.status === 'selecting' && game.categories && (
-            <div className={styles.questionPicker}>
-              <p>Pick a question to open:</p>
-              {game.categories.map((cat, ci) => (
-                <div key={ci} className={styles.pickerRow}>
-                  <span className={styles.pickerCat}>{cat.name}</span>
-                  {cat.questions.map((q, qi) => (
-                    <button
-                      key={qi}
-                      className={q.used ? styles.usedPick : styles.pick}
-                      disabled={q.used}
-                      onClick={() => openQuestion(ci, qi)}
-                    >
-                      ${q.value}
-                    </button>
-                  ))}
-                </div>
-              ))}
+            <div className={styles.boardWrap}>
+              <div className={styles.board}>
+                {game.categories.map((cat, ci) => (
+                  <div key={ci} className={styles.column}>
+                    <div className={styles.categoryHeader}>{cat.name}</div>
+                    {cat.questions.map((q, qi) => (
+                      <button
+                        key={qi}
+                        className={`${styles.cell} ${q.used ? styles.cellUsed : ''}`}
+                        disabled={q.used}
+                        onClick={() => openQuestion(ci, qi)}
+                      >
+                        {q.used ? '' : `$${q.value}`}
+                      </button>
+                    ))}
+                  </div>
+                ))}
+              </div>
             </div>
           )}
 
